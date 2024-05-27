@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json())
 
 app.use("/api/products",productRoute);
-// app.use("/api/checkout",checkOut);
+app.use("/api/checkout",checkOut);
 app.use("/api/product",product);
 
 connectDb().then(()=>{
