@@ -58,7 +58,7 @@ const addProduct = async(req,res) =>{
         
         console.log(productInitials);
         let productId = categoryStr + subCategoryStr + productCountStr + productInitials;
-        let imageName = productId+".png"
+        let imageName = temp.toString()+".png"
 
         await product.create({categoryNumber: id1, subCategoryNumber:id2, productId:productId,productImage:imageName,category:category,	subCategory:subCategory	,productName:productName,productCount:temp,	quantity:quantity	,price:price,	location:location});
 
