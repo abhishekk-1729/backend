@@ -8,7 +8,7 @@ const addCategory = async(req,res) =>{
 
         categories.forEach((item, index) => {
             const temp = initialCount + index + 1;
-            const image = `${temp}.img`;
+            const image = `${temp}.png`;
             Category.create({ category: item.category, categoryImage: image, categoryNumber: temp });
         });
 
@@ -43,7 +43,7 @@ const addSubCategory = async(req,res) =>{
 
         categories.forEach((item, index) => {
             const temp = initialCount + index + 1;
-            const image = `${temp}.img`;
+            const image = `${temp}.png`;
             SubCategory.create({ subCategory: item.subCategory, subCategoryImage: image, subCategoryNumber: temp });
         });
         res.status(200).json({"message":"done"});       

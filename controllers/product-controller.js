@@ -60,7 +60,7 @@ const addProduct = async(req,res) =>{
         let productId = categoryStr + subCategoryStr + productCountStr + productInitials;
         let imageName = productId+".png"
 
-        await product.create({productId:productId,productImage:imageName,category:category,	subCategory:subCategory	,productName:productName,productCount:temp,	quantity:quantity	,price:price,	location:location});
+        await product.create({categoryNumber: id1, subCategoryNumber:id2, productId:productId,productImage:imageName,category:category,	subCategory:subCategory	,productName:productName,productCount:temp,	quantity:quantity	,price:price,	location:location});
 
         
     }

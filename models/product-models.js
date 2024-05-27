@@ -17,6 +17,14 @@ const productSchema = new mongoose.Schema({
         type: String, // Changed to Number
         required: true
     },
+    categoryNumber: {
+        type: Number, // Changed to Number
+        required: true
+    },
+    subCategoryNumber: {
+        type: Number, // Changed to Number
+        required: true
+    },
     productName: {
         type: String,
         required: true
