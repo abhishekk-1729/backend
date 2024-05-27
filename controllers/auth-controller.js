@@ -1,8 +1,9 @@
-
+// const accountSid = "ACc51ce0a3c2bb2659ff3a0a5d0c445f78";
+// const authToken = "b18ff12eb38aa388fb3361b5f5f75d47"
 const User = require("../models/user-model")
 // const jwt = require("jsonwebtoken")
 
-const client = require("twilio")(accountSid,authToken)
+// const client = require("twilio")(accountSid,authToken)
 
 const loginPhone = async (req,res) => {
     const data = req.body.phone;

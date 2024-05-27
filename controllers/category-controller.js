@@ -18,6 +18,23 @@ const addCategory = async(req,res) =>{
     }
 
 }
+
+
+const getAllCategory = async(req,res) =>{
+    try {
+        
+        const products = await Category.find();
+        
+        if(!products){
+            res.status(404).json({"message":"no product found"});
+        }
+        console.log(products)
+        res.status(200).json(products);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const addSubCategory = async(req,res) =>{
     try {
         const categories = req.body;
@@ -36,4 +53,4 @@ const addSubCategory = async(req,res) =>{
 
 }
 
-module.exports = {addCategory,addSubCategory}
+module.exports = {addCategory,addSubCategory,getAllCategory}
