@@ -6,7 +6,10 @@ const checkOut = require("./router/checkout-router.js")
 const product = require("./router/product-router.js")
 const auth = require("./router/auth-router.js")
 const address = require("./router/address-router.js")
+const order = require("./router/order-router.js")
+const home = require("./router/home-routes")
 const app = express();
+
 const connectDb = require("./utils/db");
 const PORT =  process.env.PORT;
 
@@ -18,6 +21,8 @@ app.use("/api/checkout",checkOut);
 app.use("/api/product",product);
 app.use("/api/auth",auth);
 app.use("/api/address",address);
+app.use("/api/order",order);
+app.use("/",home);
 
 connectDb().then(()=>{
     app.listen(PORT,()=>{

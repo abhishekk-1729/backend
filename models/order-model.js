@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true
     },
-    address:{
+    addressId:{
         type:String,
         require:true
     },
@@ -33,6 +33,14 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true
     },
+    orderStatus:{
+        type:String,
+        require:true
+    },
+    amount:{
+        type:Number,
+        reqire:true
+    }
 })
 
 const Order = new mongoose.model("Order",userSchema);

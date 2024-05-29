@@ -28,7 +28,7 @@ const getAllCategory = async(req,res) =>{
         if(!products){
             res.status(404).json({"message":"no product found"});
         }
-        console.log(products)
+        // console.log(products)
         res.status(200).json(products);
     } catch (error) {
         console.log(error);

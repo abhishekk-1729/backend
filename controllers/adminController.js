@@ -10,7 +10,7 @@ const addProduct = async(req,res) => {
 
         return res.status(201).json({message:"created"});
 
-        console.log({"message":"hi"})
+        // console.log({"message":"hi"})
     } catch (error) {
         console.log(error);
     }
@@ -21,7 +21,7 @@ const editProductById = (req,res) => {
     try {
         
         res.status(200).send({"message":"Products fetched succesfully"});
-        console.log({"message":"hi"})
+        // console.log({"message":"hi"})
     } catch (error) {
         console.log(error);
     }
@@ -31,7 +31,7 @@ const deleteProductById = (req,res) => {
 
     try {
         res.status(200).send({"message":"Products fetched succesfully"});
-        console.log({"message":"hi"})
+        // console.log({"message":"hi"})
     } catch (error) {
         console.log(error);
     }

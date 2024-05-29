@@ -23,7 +23,7 @@ const addAddressPhone = async (req,res) => {
 
 const deleteAddress = async (req,res) => {
     const data = req.body;
-    console.log("data",data);
+    // console.log("data",data);
     await Address.deleteOne({_id:data._id});
     res.status(200).json(data);
 };

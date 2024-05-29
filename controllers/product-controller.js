@@ -56,7 +56,7 @@ const addProduct = async(req,res) =>{
         let productCountStr = temp.toString().padStart(3, '0');
         let productInitials = productName.replace(/[^a-zA-Z]/g, '').substring(0, 2).toUpperCase();
         
-        console.log(productInitials);
+        console.log(productName);
         let productId = categoryStr + subCategoryStr + productCountStr + productInitials;
         let imageName = temp.toString()+".png"
 

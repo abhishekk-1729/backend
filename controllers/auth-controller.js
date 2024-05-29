@@ -1,10 +1,12 @@
-// const accountSid = "ACc51ce0a3c2bb2659ff3a0a5d0c445f78";
-// const authToken = "b18ff12eb38aa388fb3361b5f5f75d47"
+const accountSid = "ACc51ce0a3c2bb2659ff3a0a5d0c445f78";
+const authToken = "f170a02917eb6e76052224f6f088fc32"
 const User = require("../models/user-model")
-// const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken")
+const Otp = require("../models/otp-model")
 
-// const client = require("twilio")(accountSid,authToken)
+const client = require("twilio")(accountSid,authToken)
 
+let OTP, user1;
 const loginPhone = async (req,res) => {
     const data = req.body.phone;
     const isPresent = await User.findOne({phone:data});
@@ -13,32 +15,68 @@ const loginPhone = async (req,res) => {
     for(let i=0;i<4;i++){
         OTP+=digits[Math.floor(Math.random()*10)];
     }
-
-    console.log(data);
     if(isPresent){
-        console.log("found")
-        res.status(200).json({"result":"true","otp":OTP,token: await isPresent.generateToken()})
+        
+        try {
+            const message = await client.messages.create({
+              body:    `${OTP}`,
+              from: 'whatsapp:+14155238886',
+              to: `whatsapp:+91${data}`
+            });
+            // console.log(message.sid);
+            // console.log(OTP);
+            res.status(201).json({"result":"true","otp":OTP,token: await isPresent.generateToken()})
+          } catch (error) {
+            console.error(error);
+            res.status(500).send({ error: 'Failed to send message' });
+          }
+          
     }
+
+
     else{
         console.log("not found");
         await User.create({phone:data});
-        console.log("created")
+        // console.log("created")
+        try {
+            const message = await client.messages.create({
+              body:    `${OTP}`,
+              from: 'whatsapp:+14155238886',
+              to: `whatsapp:+91${data}`
+            });
+            // console.log(message.sid);
+            res.status(201).json({"result":"true","otp":OTP,token: await isPresent2.generateToken()})
+          } catch (error) {
+            console.error(error);
+            res.status(500).send({ error: 'Failed to send message' });
+          }
         const isPresent2 = await User.findOne({phone:data});
-        res.status(201).json({"result":"false","otp":OTP,token: await isPresent2.generateToken()})
+        
+        
 
     }
-
-    // await client.messages.create({
-    //     body:`Your otp verification for phone number ${data} is ${OTP}`,
-    //     messagingServiceSid:"",
-    //     to:"+918755273773"
-
-    // })
-    // .then(()=>res.status(200).json({msg:"Message Sent"}))
     
-
     
 }
+
+// const verify = async (req,res) => {
+//     try {
+//         console.log(req.body);
+//         const {phone,otp} = req.body;
+
+//         if(otp!=OTP){
+//             return res.status(400).json({msg:"Incorrect Otp"});
+//         }
+
+//         user1 = await user1.save();
+//         const token = jwt.sign({id:user._id},"password key");
+//         res.status(200).json({token,...user._doc});
+//         OTP="";
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
 
 const user = async(req,res) => {
     try {

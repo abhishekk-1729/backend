@@ -8,13 +8,13 @@ const authMiddleware = async(req,res,next) => {
     }
 
     const jwtToken = token.replace("Bearer ","").trim();
-    console.log(jwtToken);
+    // console.log(jwtToken);
 
     try {
         const isVerified = jwt.verify(jwtToken,process.env.JWT_SECRET_KEY)
 
         const userData = await User.findOne({phone:isVerified.phone});
-        console.log(userData);
+        // console.log(userData);
         req.user = userData;
     } catch (error) {
         return res.status(401).json({message:"Unauthorized HTTP"});
