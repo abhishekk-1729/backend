@@ -1,5 +1,5 @@
 const accountSid = "ACc51ce0a3c2bb2659ff3a0a5d0c445f78";
-const authToken = "f170a02917eb6e76052224f6f088fc32"
+const authToken = "a05d32e268e19cdc5cbaa88dfb114f84"
 const User = require("../models/user-model")
 const jwt = require("jsonwebtoken")
 const Otp = require("../models/otp-model")
