@@ -5,7 +5,7 @@ const Order = require("../models/order-model");
 require("dotenv").config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-const YOUR_DOMAIN = 'http://localhost:3000';
+const YOUR_DOMAIN = 'https://blinkit-frontend-livid.vercel.app';
 
 router.route("/final").post(async (req, res) => {
     
