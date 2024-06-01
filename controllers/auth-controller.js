@@ -20,8 +20,8 @@ const loginPhone = async (req,res) => {
         try {
             const message = await client.messages.create({
               body:    `${OTP}`,
-              from: 'whatsapp:+14155238886',
-              to: `whatsapp:+91${data}`
+              from: '+13854128264',
+              to: `+91${data}`
             });
             // console.log(message.sid);
             // console.log(OTP);
