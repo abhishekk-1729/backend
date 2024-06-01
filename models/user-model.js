@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 
+// phone, all sub categories
 const userSchema = new mongoose.Schema({
     phone:{
         type: String,
