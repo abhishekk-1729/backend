@@ -16,7 +16,7 @@ router.route("/final").post(async (req, res) => {
     const uniqIds = [...new Set(productsIds)];
     const products = await product.find({_id:{$in:uniqIds}});
     let line_items = [];
-    const x = await Order.countDocuments()+1;
+    const x = await await Order.distinct('orderId')+1;
     for (let productId of uniqIds) {
       const quantity = productsIds.filter(id => id === productId).length;
       const product = products.find(p => p._id.toString() === productId);

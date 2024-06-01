@@ -7,7 +7,7 @@ const SubCategory = require("../models/subCategory-model");
 const { OpenAI } = require("openai");
 
 const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
 });
 
 const chatGptExecute= async (userQuery) => {
